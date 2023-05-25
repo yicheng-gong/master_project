@@ -317,6 +317,8 @@ GameObject:
   - component: {fileID: 2109927516}
   - component: {fileID: 2109927515}
   - component: {fileID: 2109927514}
+  - component: {fileID: 2109927521}
+  - component: {fileID: 2109927520}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -366,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   streams:
   - {fileID: 2109927514}
+  - {fileID: 2109927521}
 --- !u!114 &2109927516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,3 +468,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109927520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109927513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7449aabc837d944bfd5c03383ac15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2109927521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109927513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decb088abd7ec9747b6e9a1011c046b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  local: 0
+  label: 
+  m_Actions: {fileID: -944628639613478452, guid: 51c12475b309d9042b49a3ce0241389b, type: 3}
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2109927520}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Look
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0da6ef89-2a33-40a8-ae5e-48b2a6cddab5
+    m_ActionName: Actions/Look[/Mouse/delta]
+  m_DefaultActionMap: Actions
