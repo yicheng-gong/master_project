@@ -51,6 +51,7 @@ public class webCamDetect : MonoBehaviour
 		// I would like to tune the spatial audio
 		//
 
+		/*
 		audioSource = GetComponent<AudioSource>();
 		string[] audioDevices = Microphone.devices;
 
@@ -62,5 +63,6 @@ public class webCamDetect : MonoBehaviour
 		audioSource.loop = true;
 		while (!(Microphone.GetPosition(null) > 0 )) { }
 		audioSource.Play();
+		*/
 	}
 }
