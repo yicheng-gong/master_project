@@ -19,6 +19,7 @@ namespace Unity.RenderStreaming.Samples
         private InputSender inputSender;
         private RenderStreamingSettings settings;
         private Vector2 lastSize;
+        public RenderTexture encodeVideo;
 
         void Awake()
         {
@@ -59,6 +60,12 @@ namespace Unity.RenderStreaming.Samples
                 receiveVideoViewer.SetCodec(settings.ReceiverVideoCodec);
 
             connection.CreateConnection(connectionId);
+        }
+
+        void Update()
+        {
+                Texture receivedTexture = receiveVideoViewer.texture;
+                Graphics.Blit(receivedTexture, encodeVideo);
         }
     }
 }

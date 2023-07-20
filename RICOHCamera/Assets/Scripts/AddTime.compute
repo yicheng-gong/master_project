@@ -1,0 +1,21 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Addtime
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+Buffer<uint> timeBuffer;
+
+[numthreads(8,8,1)]
+void Addtime(uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+    for (uint i = 0; i < timeBuffer.Length; i += 2)
+    {
+        if (id.x == timeBuffer[i] && id.y == timeBuffer[i + 1])
+        {
+            Result[id.xy] = float4(1, 0, 0, 1); // set the pixel to red
+            break;
+        }
+    }
+}

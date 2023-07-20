@@ -1,0 +1,16 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel TimeDecoder
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWTexture2D<float4> Result;
+RWStructuredBuffer<float4> Output;
+
+[numthreads(8,8,1)]
+void TimeDecoder(uint3 id : SV_DispatchThreadID)
+{
+    // TODO: insert actual code here!
+
+    float4 color = Result.Load(int3(0, 0, 0));
+    Output[0] = color;
+}

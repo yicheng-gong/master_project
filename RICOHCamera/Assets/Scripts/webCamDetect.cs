@@ -3,7 +3,9 @@ using System.Collections;
 
 public class webCamDetect : MonoBehaviour
 {
-	string camName;
+    [SerializeField] private RenderTexture ThetaVvideo;
+
+    string camName;
     public const string RICOH_DRIVER_NAME = "RICOH THETA V/Z1 4K";
     // public const string RICOH_DRIVER_NAME = "RICOH THETA V FullHD";
     // public const string RICOH_DRIVER_NAME = "HD Webcam";
@@ -14,7 +16,10 @@ public class webCamDetect : MonoBehaviour
     public const int THETA_V_AUDIO_NUMBER = 0;   
 	AudioSource audioSource;
 
-	void Start()
+	public WebCamTexture ThetaV;
+    WebCamTexture mycam;
+
+    void Start()
 	{
 		WebCamDevice[] devices = WebCamTexture.devices;
 		Debug.Log("Number of web cams connected: " + devices.Length);
@@ -36,22 +41,23 @@ public class webCamDetect : MonoBehaviour
 		}
 
 		Renderer rend = this.GetComponentInChildren<Renderer>();
-		WebCamTexture mycam = new WebCamTexture();
+        mycam = new WebCamTexture();
 
-		mycam.deviceName = camName;
+
+        mycam.deviceName = camName;
 		rend.material.mainTexture = mycam;
 
-		mycam.Play();
+        mycam.Play();
 
-		// audio
-		// this section working with HTC Vive, but have not 
-		// verified spatial audio. Maybe try STEAM AUDIO?
-		// https://valvesoftware.github.io/steam-audio/downloads.html
-		// It's good enough for telepresence demo right now, but
-		// I would like to tune the spatial audio
-		//
+        // audio
+        // this section working with HTC Vive, but have not 
+        // verified spatial audio. Maybe try STEAM AUDIO?
+        // https://valvesoftware.github.io/steam-audio/downloads.html
+        // It's good enough for telepresence demo right now, but
+        // I would like to tune the spatial audio
+        //
 
-		/*
+        /*
 		audioSource = GetComponent<AudioSource>();
 		string[] audioDevices = Microphone.devices;
 
@@ -64,5 +70,10 @@ public class webCamDetect : MonoBehaviour
 		while (!(Microphone.GetPosition(null) > 0 )) { }
 		audioSource.Play();
 		*/
-	}
+    }
+
+    void Update()
+    {
+        Graphics.Blit(mycam, ThetaVvideo);
+    }
 }
