@@ -6,10 +6,12 @@ public class CameraFollower : MonoBehaviour
 {
     private InputDevice vrDevice;
     private bool isTracking = false;
+    public Camera cameraToFollow1;
+    public Camera cameraToFollow2;
 
     void Start()
     {
-        // 获取VR设备
+        // Get VR Device
         var inputDevices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.HeadMounted, inputDevices);
         if (inputDevices.Count > 0)
@@ -23,19 +25,12 @@ public class CameraFollower : MonoBehaviour
     {
         if (isTracking && vrDevice != null)
         {
-            // 获取VR头显的位置和旋转信息
-            Vector3 headsetPosition;
-            if (vrDevice.TryGetFeatureValue(CommonUsages.devicePosition, out headsetPosition))
-            {
-                // 更新摄像机位置
-                transform.position = headsetPosition;
-            }
-
             Quaternion headsetRotation;
             if (vrDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out headsetRotation))
             {
-                // 更新摄像机旋转
-                transform.rotation = headsetRotation;
+                // uodate direction
+                cameraToFollow1.transform.rotation = headsetRotation;
+                cameraToFollow2.transform.rotation = headsetRotation;
             }
         }
     }

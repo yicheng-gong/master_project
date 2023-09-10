@@ -31,6 +31,7 @@ namespace Unity.RenderStreaming.Samples
 
         void Start()
         {
+            Application.targetFrameRate = 30;
             if (renderStreaming.runOnAwake)
                 return;
 
@@ -64,8 +65,8 @@ namespace Unity.RenderStreaming.Samples
 
         void Update()
         {
-                Texture receivedTexture = receiveVideoViewer.texture;
-                Graphics.Blit(receivedTexture, encodeVideo);
+            Texture receivedTexture = receiveVideoViewer.texture;
+            Graphics.Blit(receivedTexture, encodeVideo);
         }
     }
 }

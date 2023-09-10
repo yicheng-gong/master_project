@@ -1,0 +1,74 @@
+{
+    "name": "Sence Select",
+    "maps": [
+        {
+            "name": "Sence Select",
+            "id": "a83311a3-f094-4ca7-bfb0-e9c05a59943f",
+            "actions": [
+                {
+                    "name": "X button",
+                    "type": "Button",
+                    "id": "c1b296c1-2c6c-4a9b-ad65-ec8e4e9e2f80",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Y button",
+                    "type": "Button",
+                    "id": "7f4e1c4b-1ad6-471d-baaa-d4a31a5f25b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu button",
+                    "type": "Button",
+                    "id": "cd8ffd64-c428-42f1-9694-b1c022aeb155",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1b83955c-24a9-4722-9a67-3f6d5c2d4699",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "X button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c17227fb-292b-46d6-9978-fb434ff84cfa",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Y button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bd40803-0cfb-42b6-9e65-9263d55010a6",
+                    "path": "<XRController>{LeftHand}/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
