@@ -1,4 +1,4 @@
-# master_project
+# Telepresence Robotics
 ## Authors: 
 ### Yicheng Gong
 
