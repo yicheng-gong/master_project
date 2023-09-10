@@ -137,10 +137,9 @@ pip install scikit-image
 ```
 python data_utils.py
 
-optional arguments:
---upscale_factor      super resolution upscale factor [default value is 2]
+optional parameters: --upscale_factor
 ```
-to generate train and val datasets from DVI2K with given upscale factors(options: 2, 4).
+In this project, upscale_factor is set to 2.
 
 ## Train Super Resolution Network
 1. Change the path to 'SuperResolution' folder.
@@ -152,10 +151,9 @@ python -m visdom.server
 ```
 python train_gan.py
 
-optional arguments:
---upscale_factor      super resolution upscale factor [default value is 2]
---num_epochs          super resolution epochs number [default value is 200]
+optional parameters: --upscale_factor --num_epochs
 ```
+In this project, upscale_factor is set to 2 or 4 and num_epochs is set to 200.
 
 ## Test Dataset
 ### Dataset Download
@@ -172,13 +170,11 @@ optional arguments:
 ```
 python test_image.py
 
-optional arguments:
---upscale_factor      super resolution upscale factor [default value is 2]
---model_name          super resolution model name [default value is gan_epoch_2_159.pt]
---dataset_name        test dataset name [default value is Set5]
+optional parameters: --upscale_factor --model_name --dataset_name
 ```
+In this project, upscale_factor is set to 2 or 4, model_name is set to 'gan_epoch_2_159.pt' or 'gan_epoch_4_189.pt' and dataset_name is set to 'Set5', 'Set14', 'BSD100', 'Urban100' or 'own'.
 
-Note: run the Four images in Dissertation needs to modify the code
+Note: run the Four images in Dissertation needs to modify the code below.
 ```
 From:
 
