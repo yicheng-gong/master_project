@@ -36,30 +36,31 @@ def compute_ssim(image1, image2):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Test Super Resolution')
-    parser.add_argument('--upscale_factor', default=4, type=int, help='super resolution upscale factor')
-    parser.add_argument('--model_name', default='gan_epoch_4_187.pt', type=str, help='super resolution model name')
+    parser.add_argument('--upscale_factor', default=2, type=int, help='super resolution upscale factor')
+    parser.add_argument('--model_name', default='gan_epoch_2_159.pt', type=str, help='super resolution model name')
+    parser.add_argument('--dataset_name', default='Set5', type=str, help='test dataset name')
     opt = parser.parse_args()
 
     UPSCALE_FACTOR = opt.upscale_factor
     MODEL_NAME = opt.model_name
+    DATASET_NAME = opt.dataset_name
 
-    dataset_name = 'own'
-    path = 'data/test/' + dataset_name + '/SRF_' + str(UPSCALE_FACTOR) + '/test/'
-    target_path = 'data/test/' + dataset_name + '/SRF_' + str(UPSCALE_FACTOR) + '/target/'
+    path = 'data/test/' + DATASET_NAME + '/SRF_' + str(UPSCALE_FACTOR) + '/test/'
+    target_path = 'data/test/' + DATASET_NAME + '/SRF_' + str(UPSCALE_FACTOR) + '/target/'
     images_name = [x for x in listdir(path) if is_image_file(x)]
     model = Generator(UPSCALE_FACTOR)
     if torch.cuda.is_available():
         model = model.cuda()
     model.load_state_dict(torch.load('epochs/' + MODEL_NAME))
 
-    out_path = 'results/' + dataset_name + '/SRF_' + str(UPSCALE_FACTOR) + '/'
+    out_path = 'results/' + DATASET_NAME + '/SRF_' + str(UPSCALE_FACTOR) + '/'
     if not os.path.exists(out_path):
         os.makedirs(out_path)
 
     psnr_list = []
     ssim_list = []
     for image_name in tqdm(images_name, desc='convert LR images to HR images'):
-        hr_name = image_name[:-1][:-1][:-1][:-1][:-1][:-1] + 'HR.jpg'
+        hr_name = image_name[:-1][:-1][:-1][:-1][:-1][:-1] + 'HR.png'
         img = Image.open(path + image_name).convert("RGB")
         target_img = Image.open(target_path + hr_name).convert("RGB")
         target_img = np.array(target_img)
@@ -80,5 +81,5 @@ if __name__ == "__main__":
     
     mean_psnr = sum(psnr_list) / len(psnr_list)
     mean_ssim = sum(ssim_list) / len(ssim_list)
-    print('Mean PSNR of '+ dataset_name + ' Dataset is: ' + str(mean_psnr) + ' dB')
-    print('Mean SSIM of '+ dataset_name + ' Dataset is: ' + str(mean_ssim))
+    print('Mean PSNR of '+ DATASET_NAME + ' Dataset is: ' + str(mean_psnr) + ' dB')
+    print('Mean SSIM of '+ DATASET_NAME + ' Dataset is: ' + str(mean_ssim))

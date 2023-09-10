@@ -113,7 +113,7 @@ def on_end_epoch(state):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Train Super Resolution')
-    parser.add_argument('--upscale_factor', default=4, type=int, help='super resolution upscale factor')
+    parser.add_argument('--upscale_factor', default=2, type=int, help='super resolution upscale factor')
     parser.add_argument('--num_epochs', default=200, type=int, help='super resolution epochs number')
     opt = parser.parse_args()
 
