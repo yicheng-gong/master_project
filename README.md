@@ -1,6 +1,7 @@
 # Telepresence Robotics
 ## Authors: 
 ### Yicheng Gong
+If you have any questions or issues related to running the code, please contact me via email (yicheng.gong.22@ucl.ac.uk).
 
 ## Introduction
 A telepresence robotics vision system with low latency has been developed through 360-degree panoramic video. To overcome the latency issue in real time transmission of 360-degree panoramic video, a low latency transmission method has been proposed, which involves lowering the resolution for transmission and then restoring it through a super resolution network. In this project, the code is primarily divided into four main sections.
