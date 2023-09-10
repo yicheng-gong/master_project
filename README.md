@@ -35,7 +35,7 @@ conda install -c conda-forge matplotlib
 
 ### Run plot.ipynb
 1. The project's test-recorded videos have been uploaded to the 'Videos' folder. 
-2. Modify the path of 'tesseract.exe' in the following code
+2. Modify the path of 'tesseract.exe' in the following code.
 ```
 pytesseract.pytesseract.tesseract_cmd = r'your 'tesseract.exe' path'
 ```
@@ -50,7 +50,7 @@ This section primarily consists of Unity program code used on the telepresence r
 - [RICOH THETA UVC Driver](https://support.theta360.com/intl/download/liveapp4k/win3)
 
 ### Change WebSocket for Signaling Server
-1. Open the 'webserver.exe' in 'RICOHCamera' Folder
+1. Open the 'webserver.exe' in 'RICOHCamera' Folder.
 2. Find the server address like the following figure.
 <table>
   <tr>
@@ -82,7 +82,7 @@ This section primarily consists of Unity program code used on the HMD side. And 
 - [Unity OpenXR Plugin](https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.2/manual/index.html)
 
 ### Change WebSocket for Signaling Server
-1. Open the 'webserver.exe' in 'PlayerCamera' Folder
+1. Open the 'webserver.exe' in 'PlayerCamera' Folder.
 2. Find the server address like the following figure.
 <table>
   <tr>
@@ -132,7 +132,8 @@ pip install scikit-image
 
 ### Dataset Deployment
 1. Dawnload the dataset into 'SuperResolution->data' folder.
-2. run the trainning data creator
+2. Change the path to 'SuperResolution' folder.
+3. run the trainning data creator.
 ```
 python data_utils.py
 
@@ -142,11 +143,12 @@ optional arguments:
 to generate train and val datasets from DVI2K with given upscale factors(options: 2, 4).
 
 ## Train Super Resolution Network
-1. Open the Visdom Server
+1. Change the path to 'SuperResolution' folder.
+2. Open the Visdom Server.
 ```
 python -m visdom.server
 ```
-2. Run the train code
+3. Run the train code.
 ```
 python train_gan.py
 
@@ -165,7 +167,8 @@ optional arguments:
 
 ### Dataset Deployment
 1. Dawnload the 'test' folder (available at [https://drive.google.com/drive/folders/19tiMIhnuDUTcW9AxStg__6LJvRR6ZF6B?usp=drive_link](https://drive.google.com/drive/folders/19tiMIhnuDUTcW9AxStg__6LJvRR6ZF6B?usp=drive_link)) into 'SuperResolution->data' folder.
-2. Run the test_image.py
+2. Change the path to 'SuperResolution' folder.
+3. Run the test_image.py.
 ```
 python test_image.py
 
@@ -192,10 +195,10 @@ hr_name = image_name[:-1][:-1][:-1][:-1][:-1][:-1] + 'HR.jpg'
 
 ## Pretrained Model
 ### pt file
-Available at [https://drive.google.com/drive/folders/1LtGk9k41NUy_5QkcV26tWzlm_q3vwF8p?usp=sharing](https://drive.google.com/drive/folders/1LtGk9k41NUy_5QkcV26tWzlm_q3vwF8p?usp=sharing)
+Download to 'epochs' folder. Available at [https://drive.google.com/drive/folders/1LtGk9k41NUy_5QkcV26tWzlm_q3vwF8p?usp=sharing](https://drive.google.com/drive/folders/1LtGk9k41NUy_5QkcV26tWzlm_q3vwF8p?usp=sharing)
 
 ### onnx file
-Available at [https://drive.google.com/drive/folders/17CXiCHxprBKapAOJxsw8SwVduyrW1nY2?usp=sharing](https://drive.google.com/drive/folders/17CXiCHxprBKapAOJxsw8SwVduyrW1nY2?usp=sharing)
+Download to 'pretrained_model' folder. Available at [https://drive.google.com/drive/folders/17CXiCHxprBKapAOJxsw8SwVduyrW1nY2?usp=sharing](https://drive.google.com/drive/folders/17CXiCHxprBKapAOJxsw8SwVduyrW1nY2?usp=sharing)
 
 ## References
 (1) A. Ignatov, R. Timofte et al., “Pirm challenge on perceptual image enhancement on smart-
